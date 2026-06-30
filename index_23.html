@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tímea Laura Molnár</title>
+  <meta name="description" content="Assistant Professor in Economics at Central European University. Labor Economics, Economics of Education, Early Childhood Development." />
+  <!-- Using Georgia (system serif) to match timea-laura-molnar.com -->
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:    #111111;
+      --mid:    #333333;
+      --muted:  #666666;
+      --rule:   #e2e2e2;
+      --bg:     #ffffff;
+      --accent: #1a1a1a;
+      --link:   #1a1a1a;
+      --font:   Georgia, 'Times New Roman', Times, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      height: 50px;
+    }
+    .nav-name {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      transition: color .15s;
+    }
+    .nav-name:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 0; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 0 1rem;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── PAGE ── */
+    .page {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    /* ── BIO ── */
+    .bio {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 3rem;
+      align-items: start;
+      margin-bottom: 1rem;
+    }
+    .bio-photo {
+      width: 180px;
+      height: 220px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .bio-text h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: .2rem;
+      letter-spacing: -.03em;
+      font-variant: small-caps;
+    }
+    .bio-role {
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .bio-text p {
+      font-size: .93rem;
+      color: var(--mid);
+      margin-bottom: .75rem;
+      line-height: 1.65;
+    }
+    .bio-text a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+    .bio-text a:hover { color: var(--muted); }
+    .bio-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1.4rem;
+    }
+    .bio-pill {
+      display: inline-block;
+      border: 1px solid #ccc;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: .25rem .75rem;
+      border-radius: 2px;
+      transition: background .15s, color .15s;
+    }
+    .bio-pill:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+    /* ── SECTION HEADERS ── */
+    .section-label {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.6rem;
+      margin-top: 3.5rem;
+      padding-bottom: .5rem;
+      border-bottom: 2px solid var(--ink);
+      display: block;
+    }
+    .section-label:first-of-type { margin-top: 0; }
+
+    /* ── PAPER GROUP HEADING ── */
+    .paper-category {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 1.2rem;
+      margin-bottom: .8rem;
+      padding-bottom: .3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ── PAPER ENTRY ── */
+    .paper {
+      margin-bottom: 1.1rem;
+    }
+    .paper-num {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--muted);
+      padding-top: .05rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .paper-body {}
+    .paper-title-link {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      line-height: 1.4;
+    }
+    .paper-title-link:hover { text-decoration: underline; text-underline-offset: 2px; }
+    .paper-title-plain {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+    .paper-coauthors {
+      font-size: .84rem;
+      color: var(--muted);
+      margin-top: .15rem;
+    }
+    .paper-venue {
+      font-size: .84rem;
+      color: var(--mid);
+      margin-top: .15rem;
+    }
+    .paper-venue strong { font-weight: 600; color: var(--ink); }
+    .journal-name { font-variant: small-caps; font-weight: 400; color: var(--ink); letter-spacing: .02em; }
+    .paper-venue a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+    .paper-venue a:hover { color: var(--muted); }
+    .paper-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      margin-top: .45rem;
+      align-items: center;
+    }
+    .paper-link {
+      font-size: .76rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      border: 1px solid #ccc;
+      padding: .18rem .55rem;
+      border-radius: 2px;
+      letter-spacing: .03em;
+      transition: background .12s, color .12s;
+    }
+    .paper-link:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .badge {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 600;
+      padding: .18rem .55rem;
+      border-radius: 2px;
+      letter-spacing: .04em;
+      vertical-align: middle;
+    }
+    .badge.submitted { background: #e3f0fc; color: #1c5d8c; border: 1px solid #b9dcf5; }
+    .badge.forthcoming { background: #d4edda; color: #155724; border: 1px solid #a3cfaa; }
+    .badge.rct { background: #d4edda; color: #155724; border: 1px solid #a3cfaa; }
+
+    /* ── ABSTRACT TOGGLE ── */
+    .abstract-btn {
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font);
+      font-size: .76rem;
+      font-weight: 600;
+      color: var(--muted);
+      padding: 0;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: .25rem;
+      border: 1px solid #ccc;
+      padding: .18rem .55rem;
+      border-radius: 2px;
+      transition: background .12s, color .12s;
+    }
+    .abstract-btn:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .abstract-btn .arr { font-size: .6rem; display: inline-block; transition: transform .18s; }
+    .abstract-btn.open .arr { transform: rotate(90deg); }
+
+    .abstract-text {
+      display: none;
+      margin-top: .65rem;
+      font-size: .87rem;
+      color: var(--mid);
+      line-height: 1.7;
+      border-left: 2px solid #ccc;
+      padding-left: .9rem;
+    }
+    .abstract-text.open { display: block; }
+
+    /* ── TEACHING ── */
+    .course-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: .55rem 0;
+      border-bottom: 1px solid var(--rule);
+      gap: 1rem;
+    }
+    .course-row:last-of-type { border-bottom: none; }
+    .course-name { font-size: .9rem; color: var(--ink); }
+    .course-syl {
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      border: 1px solid #ccc;
+      padding: .15rem .5rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: background .12s, color .12s;
+    }
+    .course-syl:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .award {
+      margin-top: 1.6rem;
+      font-size: .9rem;
+      color: var(--mid);
+      border-left: 2px solid #ccc;
+      padding-left: .9rem;
+    }
+    .award strong { color: var(--ink); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 4rem;
+      padding: 2rem 3rem;
+      font-size: .78rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    footer a { color: var(--muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .bio { grid-template-columns: 1fr; gap: 1.5rem; }
+      .bio-photo { width: 120px; height: 145px; }
+      nav { padding: 0 1.2rem; }
+      .nav-links a { padding: 0 .6rem; font-size: .72rem; }
+      .page { padding: 2.5rem 1.2rem 5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="#">Tímea Laura Molnár</a>
+  <div class="nav-links">
+    <a href="#bio">Research</a>
+    <a href="#teaching">Teaching</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- ═══ BIO ═══ -->
+  <div class="bio" id="bio">
+    <img class="bio-photo"
+      src="https://timea-laura-molnar.com/wp-content/uploads/2025/11/pic3.jpg"
+      alt="Tímea Laura Molnár"
+      onerror="this.style.display='none'" />
+    <div class="bio-text">
+      <h1>Tímea Laura Molnár</h1>
+      <p style="line-height:2; margin-top:1em;">
+        Assistant Professor in Economics at
+        <a href="https://economics.ceu.edu/" target="_blank" rel="noopener">Central European University</a>;
+        also an <a href="https://www.iza.org/en/people/affiliates/33472/timea-laura-molnar" target="_blank" rel="noopener">IZA@LISER Affiliate</a><br>
+        PhD in Economics from the
+        <a href="https://economics.ubc.ca/" target="_blank" rel="noopener">Vancouver School of Economics</a>
+        (<a href="https://economics.ubc.ca/" target="_blank" rel="noopener">UBC</a>, Canada)<br>
+        Research fields: Labor Economics, Economics of Education and Early Childhood Development<br>
+        <span style="white-space:nowrap;">Teaching fields: Labor Economics, Economics of Education, Introductory Microeconomics, Applied Econometrics</span>
+      </p>
+      <div class="bio-pill-row">
+        <a class="bio-pill" href="https://scholar.google.com/citations?user=lWZoF8gAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="bio-pill" href="https://www.dropbox.com/s/j0owxw3xc8g6tch/Molnar-Timea-Laura-CV.pdf?dl=0" target="_blank" rel="noopener">CV</a>
+        <a class="bio-pill" href="https://www.iza.org/en/people/affiliates/33472/timea-laura-molnar" target="_blank" rel="noopener">IZA</a>
+        <a class="bio-pill" href="mailto:molnartl@ceu.edu">Email</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ RESEARCH ═══ -->
+
+  <!-- Working Papers -->
+  <div class="paper-category">Working Papers</div>
+
+  <div class="paper">
+    <div class="paper-body">
+      <a class="paper-title-link" href="https://www.dropbox.com/s/vn7czek8f47hniv/Molnar%2C%20TL%20-%20Costs%20of%20Daycare%2C%20Complementarities%2C%20and%20Heterogeneous%20Productivity%20of%20Parenting%20Time%20in%20Child%20Skill%20Formation.pdf?dl=0" target="_blank" rel="noopener">
+        Costs of Daycare, Complementarities, and Heterogeneous Productivity of Parenting Time in Child Skill Formation
+      </a>
+      <div class="paper-venue">May 2026 &mdash; <span class="badge submitted">Submitted</span></div>
+      <div class="paper-links">
+        <a class="paper-link" href="https://www.dropbox.com/s/vn7czek8f47hniv/Molnar%2C%20TL%20-%20Costs%20of%20Daycare%2C%20Complementarities%2C%20and%20Heterogeneous%20Productivity%20of%20Parenting%20Time%20in%20Child%20Skill%20Formation.pdf?dl=0" target="_blank" rel="noopener">Working Paper</a>
+        <a class="paper-link" href="https://www.dropbox.com/scl/fi/jp1e7336ykjz40p61dev8/Supplemental-Appendix.pdf?rlkey=j2piwphmb2gko7xwcn6jv2dif&st=4nim85l4&dl=0" target="_blank" rel="noopener">Supplemental Appendix</a>
+        <button class="abstract-btn" onclick="toggleAbs(this)"><span class="arr">&#9654;</span> Abstract</button>
+      </div>
+      <div class="abstract-text">[Please paste your abstract here.]</div>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-body">
+      <a class="paper-title-link" href="https://www.dropbox.com/scl/fi/16khhxw7ziemktfmup35p/Biro-Mark-Molnar-Palvolgyi-Does-Earlier-Return-to-Work-Help-Mothers-Career-Evidence-via-the-Substitution-Effect-of-Parental-Leave.pdf?rlkey=b5jydtacgvsmrozt2azm4gju9&st=iyi0zcrq&dl=0" target="_blank" rel="noopener">
+        Does Earlier Return to Work Help Mothers' Career? Evidence via the Substitution Effect of Parental Leave
+      </a>
+      <div class="paper-coauthors">with Anik&oacute; B&iacute;r&oacute; (ELTE KRTK), Lili M&aacute;rk (CEU), Zsigmond P&aacute;lv&ouml;lgyi (Corvinus U of Budapest)</div>
+      <div class="paper-venue">May 2026 &mdash; <span class="badge submitted">Submitted</span></div>
+      <div class="paper-links">
+        <a class="paper-link" href="https://www.dropbox.com/scl/fi/16khhxw7ziemktfmup35p/Biro-Mark-Molnar-Palvolgyi-Does-Earlier-Return-to-Work-Help-Mothers-Career-Evidence-via-the-Substitution-Effect-of-Parental-Leave.pdf?rlkey=b5jydtacgvsmrozt2azm4gju9&st=iyi0zcrq&dl=0" target="_blank" rel="noopener">Working Paper</a>
+        <button class="abstract-btn" onclick="toggleAbs(this)"><span class="arr">&#9654;</span> Abstract</button>
+      </div>
+      <div class="abstract-text">[Please paste your abstract here.]</div>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-body">
+      <a class="paper-title-link" href="https://www.dropbox.com/scl/fi/1ylbmixesb6v899ee6sac/Biro-da-Fonseca-Lindner-Molnar-Labor-Market-Tightness-Wage-Inequality-and-Workplace-Amenities.pdf?rlkey=no69y3oyg77t179zpxypk0px0&st=lxpsdlsh&dl=0" target="_blank" rel="noopener">
+        Labor Market Tightness, Wage Inequality and Workplace Amenities
+      </a>
+      <div class="paper-coauthors">with Anik&oacute; B&iacute;r&oacute; (ELTE KRTK), Jo&atilde;o G. da Fonseca (U de Montr&eacute;al), Attila Lindner (UCL)</div>
+      <div class="paper-venue">June 2026 &mdash; <span class="badge submitted">Submitted</span></div>
+      <div class="paper-links">
+        <a class="paper-link" href="https://www.dropbox.com/scl/fi/1ylbmixesb6v899ee6sac/Biro-da-Fonseca-Lindner-Molnar-Labor-Market-Tightness-Wage-Inequality-and-Workplace-Amenities.pdf?rlkey=no69y3oyg77t179zpxypk0px0&st=lxpsdlsh&dl=0" target="_blank" rel="noopener">Working Paper</a>
+        <button class="abstract-btn" onclick="toggleAbs(this)"><span class="arr">&#9654;</span> Abstract</button>
+      </div>
+      <div class="abstract-text">[Please paste your abstract here.]</div>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-body">
+      <span class="paper-title-plain">Fair Inequality: Alternative Measures of Earnings Differences That are Not Due to Gender and Parental Advantage</span>
+      <div class="paper-coauthors">with Wendy Carlin (UCL), Sam Bowles (Santa Fe Institute), Anik&oacute; B&iacute;r&oacute; (ELTE KRTK), and others</div>
+      <div class="paper-links">
+        <button class="abstract-btn" onclick="toggleAbs(this)"><span class="arr">&#9654;</span> Abstract</button>
+      </div>
+      <div class="abstract-text">[Please paste your abstract here.]</div>
+    </div>
+  </div>
+
+  <!-- Work in Progress -->
+  <div class="paper-category">Selected Work in Progress</div>
+
+  <div class="paper">
+    <div class="paper-body">
+      <span class="paper-title-plain">When Mathematics Rank Matters: Dynamic Peer Comparisons and the STEM Gender Gap</span>
+      <div class="paper-coauthors">with Zsuzsanna Vadle (CEU) and Zolt&aacute;n Hermann (ELTE KRTK and Corvinus U of Budapest)</div>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-body">
+      <span class="paper-title-plain">Does Leveling the Classroom Prevent Drop-Out? Impact Evaluation of the Complex Instruction Program in Hungary</span>
+      <div class="paper-coauthors">with Zolt&aacute;n Hermann (ELTE KRTK and Corvinus U of Budapest), Eva Holb (ELTE KRTK and Corvinus U of Budapest), Zsuzsanna Vadle (CEU)</div>
+      <div class="paper-venue"><a class="badge rct" href="https://doi.org/10.1257/rct.18904-1.1" target="_blank" rel="noopener" style="text-decoration:none;">RCT in the Field &mdash; AEA RCT Pre-Registration</a></div>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-body">
+      <span class="paper-title-plain">Universal Daycare from a Family Perspective: Effects on Parents' Labor Supply and Occupational Sorting</span>
+      <div class="paper-coauthors">with Ga&euml;lle Simard-Duplain (Carleton U)</div>
+      <div class="paper-links">
+        <a class="paper-link" href="https://vanierinstitute.ca/wp-content/uploads/2025/02/2025-02-20_Mothers-return-to-work-after-childbirth.pdf" target="_blank" rel="noopener">Policy Report</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Publications -->
+  <div class="paper-category">Refereed Publications</div>
+
+  <div class="paper">
+    <div class="paper-body">
+      <a class="paper-title-link" href="https://www.dropbox.com/scl/fi/oue2byvcxkwehu6ds9071/Molnar-TL-Can-Academic-Redshirting-Shrink-the-Education-Gender-Gap-Causal-Evidence-on-Student-Achievement-and-Mental-Health.pdf?rlkey=d4xjtvvzoanhuieqd2qihuaes&dl=0" target="_blank" rel="noopener">
+        Can Academic Redshirting Shrink the Education Gender Gap? Causal Evidence on Student Achievement and Mental Health
+      </a>
+      <div class="paper-venue"><a href="https://jhr.uwpress.org/content/early/2026/05/01/jhr.0724-13681R2" target="_blank" rel="noopener" style="text-decoration:none;"><span class="journal-name">Journal of Human Resources</span></a>, 2026 (accepted)</div>
+      <div class="paper-links">
+        <a class="paper-link" href="https://www.dropbox.com/scl/fi/oue2byvcxkwehu6ds9071/Molnar-TL-Can-Academic-Redshirting-Shrink-the-Education-Gender-Gap-Causal-Evidence-on-Student-Achievement-and-Mental-Health.pdf?rlkey=d4xjtvvzoanhuieqd2qihuaes&dl=0" target="_blank" rel="noopener">Paper</a>
+        <a class="paper-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6394399" target="_blank" rel="noopener">SSRN #6394399</a>
+        <button class="abstract-btn" onclick="toggleAbs(this)"><span class="arr">&#9654;</span> Abstract</button>
+      </div>
+      <div class="abstract-text">[Please paste your abstract here.]</div>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-body">
+      <a class="paper-title-link" href="https://www.dropbox.com/scl/fi/ajyghpafa5z0snh0zjf6w/BBGdFM-Accident-Induced-Absence-from-Work-and-Wage-Growth.pdf?rlkey=2ty9kld8hmta1zgwucj11nu2m&dl=0" target="_blank" rel="noopener">
+        Accident-Induced Absence from Work and Wage Growth
+      </a>
+      <div class="paper-coauthors">with Anik&oacute; B&iacute;r&oacute; (ELTE KRTK), M&aacute;rta Bisztray (ELTE KRTK), Jo&atilde;o G. da Fonseca (U de Montr&eacute;al)</div>
+      <div class="paper-venue"><a href="https://www.journals.uchicago.edu/doi/10.1086/739202" target="_blank" rel="noopener" style="text-decoration:none;"><span class="journal-name">Journal of Labor Economics</span></a>, 2025 (accepted) &mdash; Media: <a href="https://telex.hu/defacto/2023/09/01/ennyit-veszithet-ha-csak-nehany-honapig-de-tavol-van-a-munkahelyetol" target="_blank" rel="noopener">Telex</a>, <a href="https://www.diepresse.com/6289297/was-verlieren-arbeitnehmer-wenn-sie-ein-paar-monate-lang-nicht-arbeiten-gehen" target="_blank" rel="noopener">Die Presse</a></div>
+      <div class="paper-links">
+        <a class="paper-link" href="https://www.dropbox.com/scl/fi/ajyghpafa5z0snh0zjf6w/BBGdFM-Accident-Induced-Absence-from-Work-and-Wage-Growth.pdf?rlkey=2ty9kld8hmta1zgwucj11nu2m&dl=0" target="_blank" rel="noopener">Paper</a>
+        <a class="paper-link" href="https://ifs.org.uk/publications/accident-induced-absence-work-and-wage-ladders" target="_blank" rel="noopener">IFS WP #202330</a>
+        <a class="paper-link" href="https://docs.iza.org/dp16312.pdf" target="_blank" rel="noopener">IZA DP #16312</a>
+        <button class="abstract-btn" onclick="toggleAbs(this)"><span class="arr">&#9654;</span> Abstract</button>
+      </div>
+      <div class="abstract-text">[Please paste your abstract here.]</div>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-body">
+      <a class="paper-title-link" href="https://onlinelibrary.wiley.com/doi/10.1111/caje.12540" target="_blank" rel="noopener">
+        The Distribution of COVID-19 Related Risks
+      </a>
+      <div class="paper-coauthors">with Patrick Baylis, Pierre-Loup Beauregard, Marie Connolly, Nicole M. Fortin, David A. Green, and others</div>
+      <div class="paper-venue"><span class="journal-name">Canadian Journal of Economics</span> (54), 2022 &mdash; Special Issue: The COVID-19 Pandemic</div>
+      <div class="paper-links">
+        <a class="paper-link" href="https://onlinelibrary.wiley.com/doi/10.1111/caje.12540" target="_blank" rel="noopener">Paper</a>
+        <button class="abstract-btn" onclick="toggleAbs(this)"><span class="arr">&#9654;</span> Abstract</button>
+      </div>
+      <div class="abstract-text">[Please paste your abstract here.]</div>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-body">
+      <a class="paper-title-link" href="https://onlinelibrary.wiley.com/doi/10.1111/caje.12566" target="_blank" rel="noopener">
+        Primary School Reopenings and Parental Work
+      </a>
+      <div class="paper-coauthors">with Pierre-Loup Beauregard (UBC), Marie Connolly (UQaM), Catherine Haeck (UQaM)</div>
+      <div class="paper-venue"><span class="journal-name">Canadian Journal of Economics</span> (54), 2022 &mdash; Special Issue: The COVID-19 Pandemic</div>
+      <div class="paper-links">
+        <a class="paper-link" href="https://onlinelibrary.wiley.com/doi/10.1111/caje.12566" target="_blank" rel="noopener">Paper</a>
+        <button class="abstract-btn" onclick="toggleAbs(this)"><span class="arr">&#9654;</span> Abstract</button>
+        <a class="paper-link" href="https://www.youtube.com/watch?v=CuvDX2nFg-g" target="_blank" rel="noopener">Video</a>
+      </div>
+      <div class="abstract-text">[Please paste your abstract here.]</div>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-body">
+      <a class="paper-title-link" href="https://doi.org/10.1016/j.jhealeco.2017.07.001" target="_blank" rel="noopener">
+        Do Health Insurers Innovate? Evidence from the Anatomy of Physician Payments
+      </a>
+      <div class="paper-coauthors">with Jeffrey Clemens (UCSD), Joshua Gottlieb (U Chicago)</div>
+      <div class="paper-venue"><span class="journal-name">Journal of Health Economics</span> (55), 2017</div>
+      <div class="paper-links">
+        <a class="paper-link" href="https://doi.org/10.1016/j.jhealeco.2017.07.001" target="_blank" rel="noopener">Paper</a>
+        <button class="abstract-btn" onclick="toggleAbs(this)"><span class="arr">&#9654;</span> Abstract</button>
+      </div>
+      <div class="abstract-text">[Please paste your abstract here.]</div>
+    </div>
+  </div>
+
+  <!-- ═══ TEACHING ═══ -->
+  <span class="section-label" id="teaching">Teaching</span>
+
+  <div class="course-row">
+    <span class="course-name">Principles of Microeconomics <span style="color:var(--muted);font-size:.82rem">(BA)</span></span>
+    <a class="course-syl" href="https://www.dropbox.com/scl/fi/d3lzah7onawcpbnuyawfy/Syllabus-AY-2024-2025-Principles-of-Microeconomics.pdf?rlkey=c1sacqpiwcxhc4gvvcisv0kys&st=to1nq8xz&dl=0" target="_blank" rel="noopener">Syllabus</a>
+  </div>
+  <div class="course-row">
+    <span class="course-name">Economics of Education and Child Development <span style="color:var(--muted);font-size:.82rem">(MA/PhD)</span></span>
+    <a class="course-syl" href="https://www.dropbox.com/scl/fi/9b94ga60jq2e5f1sgnotj/Syllabus-AY-2024-2025-Economics-of-Education-and-Child-Development.pdf?rlkey=hye3403fsnrdun9wjicy8bgm4&st=6jldhg3o&dl=0" target="_blank" rel="noopener">Syllabus</a>
+  </div>
+  <div class="course-row">
+    <span class="course-name">Economics of Education and Child Development <span style="color:var(--muted);font-size:.82rem">(BA)</span></span>
+    <span></span>
+  </div>
+  <div class="course-row">
+    <span class="course-name">Data Analysis 2 &ndash; Regressions <span style="color:var(--muted);font-size:.82rem">(MA)</span></span>
+    <a class="course-syl" href="https://www.dropbox.com/s/67bmll4nz49cb4y/Syllabus%20AY%202022-2023%20-%20%20Data%20Analysis%202%20-%20Pattern%20discovery%20and%20regression.pdf?dl=0" target="_blank" rel="noopener">Syllabus</a>
+  </div>
+  <div class="course-row">
+    <span class="course-name">Labor Economics <span style="color:var(--muted);font-size:.82rem">(MA)</span></span>
+    <a class="course-syl" href="https://www.dropbox.com/s/fkfu4g0qwoxhxdo/Syllabus%20AY%202022-2023%20-%20Labor%20Economics.pdf?dl=0" target="_blank" rel="noopener">Syllabus</a>
+  </div>
+
+  <div class="award">
+    <strong>&#127942; 2024 Best Teacher Award</strong><br>
+    MA in Economic Policy in Global Markets program, Central European University
+  </div>
+
+</div><!-- end .page -->
+
+<footer>
+  <span style="font-variant:small-caps;">T&iacute;mea Laura Moln&aacute;r</span> &bull; Central European University &bull; <a href="mailto:molnartl@ceu.edu">molnartl@ceu.edu</a>
+</footer>
+
+<script>
+  function toggleAbs(btn) {
+    btn.classList.toggle('open');
+    btn.closest('.paper-body').querySelector('.abstract-text').classList.toggle('open');
+  }
+</script>
+</body>
+</html>
